@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{{PAGE_TITLE}}</title>
+<style>
+:root{--text:#101317;--muted:#68717b;--line:#e5e9ed;--bg:#fff;--soft:#f6f9fc;--accent:#246fae}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;color:var(--text);background:var(--bg)}
+.wrap{width:min(1180px,calc(100% - 48px));margin:auto}.section{padding:88px 0}.eyebrow{font-size:10px;font-weight:800;letter-spacing:.15em;color:var(--accent)}
+.hero{min-height:720px;display:grid;place-items:center;text-align:center;background:radial-gradient(circle at 50% 35%,#e9f5ff 0,rgba(233,245,255,.55) 25%,transparent 55%),linear-gradient(#fff,#f7fbff)}
+.hero h1{font-size:clamp(60px,9vw,126px);letter-spacing:-.065em;line-height:.92;margin:12px 0}.hero p{max-width:720px;color:var(--muted);line-height:1.75;margin:20px auto}
+.sectionhead{display:flex;justify-content:space-between;gap:40px;align-items:end}.sectionhead h2{font-size:clamp(32px,4vw,54px);letter-spacing:-.045em;margin:8px 0}.sectionhead p{max-width:520px;color:var(--muted);line-height:1.7}
+@media(max-width:720px){.wrap{width:min(100% - 28px,1180px)}.section{padding:62px 0}.sectionhead{display:block}.hero{min-height:620px}}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap"><div class="eyebrow">{{LAUNCH_LABEL}}</div><h1>{{HERO_PHRASE}}</h1><h2>{{PRODUCT_NAME}}</h2><p>{{INTRO}}</p></div></header>
+<main>
+<!-- Generate adaptive sections from references/page-structure.md. Do not blindly fill a fixed card grid. -->
+</main>
+</body>
+</html>
