@@ -1,38 +1,193 @@
 # Smartphone Launch Imaging Analysis Skill
 
-A reusable Agent Skill for creating evidence-based smartphone launch and imaging analysis reports.
+一个面向智能手机新品发布与影像系统分析的可复用 Agent Skill，用于从官方资料、创作者完整测评和第三方技术解读中提取证据，并生成结构化分析或高质量交互式 HTML 报告。
 
-## Features
+## 主要能力
 
-- Official product and technical source analysis
-- Smartphone imaging system breakdown
-- Creator full-review synthesis
-- Third-party technical interpretation
-- Interactive light-theme HTML report generation
-- Adaptive structure for Pro, Ultra, foldable and single-device launches
+- **官方信息研究**：优先检索品牌官网、新闻稿、技术规格页与发布会资料，准确提取产品定位、影像规格和官方功能描述。
+- **影像系统拆解**：从光学、传感器、焦段、光圈、防抖、变焦、计算摄影、前置相机等维度分析手机影像能力，而不是简单罗列参数。
+- **专业视频与音频分析**：覆盖视频规格、Log / RAW、HDR、专业控制、同步、外录、音频录制和后期工作流。
+- **创作者完整测评综合**：优先使用发布后的完整测评，并区分首发上手、长期体验和专项影像测试。
+- **第三方交叉验证**：通过独立媒体、技术测试和其他可靠来源，对创作者观察进行解释、补充、验证或限定。
+- **多机型统一解读**：适用于 Pro / Pro Max、Ultra、标准版、折叠屏以及同场发布的多个产品系列。
+- **行业影响分析**：从具体影像技术路线出发，分析新品对 Android 阵营、竞争产品以及移动影像发展的启示。
+- **交互式网页生成**：支持生成浅色、高信息层级、响应式的独立 HTML 报告，并通过标签页、侧边导航和渐进式信息展示控制页面密度。
 
-## Structure
+## 适用场景
+
+这个 Skill 适合用于：
+
+- 新发布手机的完整解读
+- 手机影像系统专项分析
+- 多款旗舰手机影像方向比较
+- 发布会官方信息与真实测评之间的交叉分析
+- 首发上手内容更新为完整测评版本
+- 折叠屏手机的影像交互与形态分析
+- 手机发布会分析网页制作
+
+如果只是查询一个简单参数，通常不需要启用完整的分析流程。
+
+## 分析方法
+
+整个 Skill 的核心不是“整理参数”，而是建立以下证据链：
 
 ```text
-SKILL.md
-references/
-assets/
-examples/
-  apple-2026/
-    README.md
-    index.html
-evals/
-scripts/
+官方规格 / 官方主张
+        ↓
+创作者实际观察
+        ↓
+第三方技术解释与交叉验证
+        ↓
+跨来源综合判断
+        ↓
+产品定位与行业技术启示
 ```
 
-## Example case
+分析过程中会明确区分：
 
-### Apple 2026 launch imaging analysis
+- **官方事实**：规格、焦段、光圈、视频格式等可以直接确认的信息。
+- **官方主张**：厂商宣传的画质、性能或体验提升。
+- **测评观察**：创作者或独立媒体在实际测试中观察到的表现。
+- **第三方解释**：对光学现象、算法行为、性能表现等进行的技术解释。
+- **综合分析**：基于多个来源形成的条件化结论，而不是简单制造“共识”。
 
-`examples/apple-2026/` demonstrates how the Skill handles a mixed launch containing Pro phones and a foldable device. The case focuses on variable aperture, professional video/audio workflow, foldable dual-screen imaging interaction, full-review synthesis, third-party interpretation, and industry implications.
+## 项目结构
 
-Open `examples/apple-2026/index.html` to view the standalone interactive example page. Read `examples/apple-2026/README.md` for the reasoning behind the case structure.
+```text
+smartphone-launch-imaging-analysis/
+│
+├── SKILL.md                         # Skill 核心规则与完整工作流程
+│
+├── references/                     # 专项分析框架
+│   ├── research-method.md          # 信息源优先级、时效性与事实验证
+│   ├── imaging-analysis-framework.md # 手机影像系统分析框架
+│   ├── creator-review-framework.md # 创作者测评与第三方综合方法
+│   ├── web-design-system.md        # HTML 报告视觉与交互设计规范
+│   └── page-structure.md           # 自适应页面信息架构
+│
+├── assets/
+│   └── report-template.html        # 通用独立 HTML 页面基础模板
+│
+├── examples/
+│   └── apple-2026/
+│       ├── README.md               # Apple 2026 案例说明
+│       └── index.html              # 可直接打开的交互式案例页面
+│
+├── evals/
+│   └── evals.json                  # Skill 测试场景
+│
+└── scripts/
+    └── validate_package.py         # Skill 包结构检查脚本
+```
 
-The example is a reference implementation, not a fixed template: real analyses should add or remove sections according to the device, available evidence, and launch stage.
+## Apple 2026 示例案例
 
-This repository is designed for reusable smartphone launch analysis workflows.
+`examples/apple-2026/` 是这个 Skill 的第一个完整参考案例。
+
+案例模拟一次同时包含传统 Pro 旗舰和折叠屏产品的发布会，并展示如何把不同形态的产品放在同一个发布故事中分析，而不是简单制作多个互不相关的参数表。
+
+案例重点覆盖：
+
+- 可变光圈与传统光学系统
+- 多焦段与计算摄影
+- 专业视频 / 音频工作流
+- Pro 级拍摄控制
+- 折叠屏双屏取景与后摄自拍
+- 创作者完整测评综合
+- 第三方技术解释
+- 从发布会技术变化推导行业影响
+
+直接打开：
+
+```text
+examples/apple-2026/index.html
+```
+
+即可查看独立交互式示例网页。
+
+> 这个案例是 **reference implementation（参考实现）**，不是固定模板。实际分析时应根据机型、产品形态、已有证据和发布阶段动态增加、删除或调整章节。
+
+## 影像分析维度
+
+Skill 会根据设备实际能力选择相关维度，包括：
+
+**光学系统**：等效焦距、光圈、可变光圈、超广角、长焦、潜望结构、微距以及鬼影/眩光等光学现象。
+
+**传感器与拍摄硬件**：传感器尺寸、像素、像素合并、防抖、自动对焦以及读取性能等。
+
+**计算摄影**：HDR、多帧融合、人像、景深、色彩风格、追焦、夜景和 AI 影像处理。
+
+**变焦系统**：区分真实光学焦段、传感器裁切和厂商宣传的“光学品质”焦段。
+
+**视频系统**：分辨率、帧率、HDR、Dolby Vision、Log、RAW、ProRes、稳定、外录、时间码以及专业同步能力。
+
+**音频系统**：麦克风、空间音频、风噪控制、声音混合以及拍摄后的音频调整。
+
+**前置与交互**：自动对焦、人物居中、双摄录制、外屏预览、后摄自拍以及折叠形态带来的新拍摄方式。
+
+## 信息源原则
+
+默认信息源优先级：
+
+```text
+厂商技术规格 / 产品页面
+        ↓
+厂商新闻稿 / 发布资料
+        ↓
+创作者原始完整测评
+        ↓
+独立专业测试与技术媒体
+        ↓
+可靠媒体摘要
+        ↓
+搜索摘要 / 聚合页面（仅用于发现来源）
+```
+
+较低层级的信息源不能在没有证据的情况下覆盖更直接的原始来源。
+
+对于新品分析，**信息时效性也是正确性的一部分**。如果完整测评已经发布，应优先使用完整测评，并将发布会当天的短暂上手内容降级为背景资料。
+
+## 网页设计原则
+
+生成 HTML 报告时默认采用：
+
+- 浅色高级编辑风格
+- 大字号居中 Hero
+- 克制的品牌相关渐变
+- 明确的信息层级
+- 核心卖点大面积展示
+- 次级信息压缩展示
+- 标签页或左侧导航组织复杂功能
+- 克制的 Hover / Click 微交互
+- 响应式移动端布局
+- 简洁的纵向编号来源列表
+
+页面应避免大量尺寸完全相同的卡片形成“网格疲劳”。
+
+## 验证
+
+可以运行：
+
+```bash
+python scripts/validate_package.py
+```
+
+检查 Skill 的基础目录结构和 `SKILL.md` 是否符合预期。
+
+## 使用建议
+
+最适合的使用方式是直接给出分析目标，例如：
+
+```text
+使用这个 Skill 分析最新的小米 Ultra 旗舰，重点解读影像系统、完整测评和对其他 Android 旗舰的技术启示，并生成交互式 HTML 页面。
+```
+
+也可以用于后续更新：
+
+```text
+距离发布已经过去一周，请重新搜索最新完整测评，更新原来的首发分析，并说明哪些结论发生了变化。
+```
+
+## 当前状态
+
+目前已经完成通用 Skill 框架和 Apple 2026 参考案例。后续可以继续加入 Xiaomi Ultra、vivo X 系列、OPPO Find X 系列、Samsung Galaxy Ultra、Huawei Pura 等不同产品形态的案例，用来验证和扩展这套分析框架。
