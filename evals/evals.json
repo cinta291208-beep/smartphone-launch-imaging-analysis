@@ -1,0 +1,38 @@
+[
+  {
+    "id": "apple-pro-foldable-launch",
+    "prompt": "解读某品牌最新 Pro/Pro Max/折叠屏发布会，重点分析影像，并做成网页。",
+    "expected_output": "Current-source research plus an adaptive interactive HTML report.",
+    "assertions": [
+      "Uses official specs for camera facts",
+      "Treats full reviews as higher-value than launch-day hands-on when available",
+      "Includes creator observations and separately labeled third-party interpretation",
+      "Uses tabs or navigation rather than an endless equal-card grid",
+      "Analyzes imaging technology and competitor implications"
+    ],
+    "files": ["smartphone-launch-imaging-analysis/SKILL.md"]
+  },
+  {
+    "id": "single-ultra-camera",
+    "prompt": "做一份某 Android Ultra 旗舰的影像深度解读。",
+    "expected_output": "Single-model camera analysis without forced multi-model or foldable sections.",
+    "assertions": [
+      "Adapts structure to a single device",
+      "Covers optics, sensor, zoom, computational photography and video",
+      "Does not force a foldable interaction section"
+    ],
+    "files": ["smartphone-launch-imaging-analysis/SKILL.md"]
+  },
+  {
+    "id": "review-refresh",
+    "prompt": "发布会已经过去一周，把网页里的博主上手更新成完整测评。",
+    "expected_output": "Refreshes creator evidence with newer full reviews and synthesis.",
+    "assertions": [
+      "Demotes stale hands-on content",
+      "Captures review dates and test context",
+      "Adds what changed after full reviews",
+      "Separates third-party interpretations from creator conclusions"
+    ],
+    "files": ["smartphone-launch-imaging-analysis/SKILL.md"]
+  }
+]
